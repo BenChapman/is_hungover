@@ -4,10 +4,11 @@ require 'vendor/autoload.php';
 $user = ""; // Untappd user name
 $access_token = ""; // Put access_token here
 
-$client = new Guzzle\Http\Client();
-$res = $client->get('https://api.untappd.com/v4/user/info/'.$user, [
+$client = new GuzzleHttp\Client();
+$res = $client->get('https://api.untappd.com/v4/user/info/'.$user, ['body'=>[
 	'access_token' =>  $access_token
-]);
+]]);
+var_dump($res);
 $data = $res->json();
 
 $last_check_in = new DateTime($data['response']['user']['checkins'][0]['created_at']);
