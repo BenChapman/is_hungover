@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 $user = ""; // Untappd user name
 $access_token = ""; // Put access_token here
 
-$client = new GuzzleHttp\Client();
+$client = new Guzzle\Http\Client();
 $res = $client->get('https://api.untappd.com/v4/user/info/'.$user, [
 	'access_token' =>  $access_token
 ]);
